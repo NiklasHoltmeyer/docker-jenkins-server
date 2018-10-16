@@ -1,5 +1,5 @@
 maven-plugin:latest
-
+javadoc: 1.4
 ssh-credentials: 1.14
 ssh-slaves: 1.28.1
 structs: 1.17
