@@ -8,9 +8,8 @@ RUN apk update && \
     apk add ruby make dos2unix maven && \
     dos2unix  /usr/share/jenkins/ref/plugins.txt && \
     apk del dos2unix && \
-    rm -rf /usr/share/jenkins/ref/plugins/*
-##RUN xargs /usr/local/bin/install-plugins.sh < /usr/share/jenkins/ref/plugins.txt
-RUN /usr/local/bin/plugins.sh /usr/share/jenkins/ref/plugins.txt
+    rm -rf /usr/share/jenkins/ref/plugins/* && \
+    /usr/local/bin/plugins.sh /usr/share/jenkins/ref/plugins.txt
 
 USER jenkins
 
