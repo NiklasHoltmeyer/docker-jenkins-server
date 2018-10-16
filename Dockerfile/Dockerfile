@@ -15,4 +15,4 @@ RUN /usr/local/bin/plugins.sh /usr/share/jenkins/ref/plugins.txt
 USER jenkins
 
 EXPOSE 8080
-EXPOSE 50001
+EXPOSE 50000
