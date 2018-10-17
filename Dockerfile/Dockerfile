@@ -30,8 +30,9 @@ RUN apk add --update --no-cache g++ gcc \
                      libxml2-dev \
                      libxslt-dev \
                      python-dev  \
-                     py-lxml && \
-        pip install lxml bzt
+                     py-lxml 
+RUN pip install lxml
+RUN pip install bzt
 
 USER jenkins
 
