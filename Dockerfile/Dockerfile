@@ -9,7 +9,7 @@ RUN apk update && \
     dos2unix  /usr/share/jenkins/ref/plugins.txt && \
     apk del dos2unix && \
     rm -rf /usr/share/jenkins/ref/plugins/* && \
-    /usr/local/bin/plugins.sh /usr/share/jenkins/ref/plugins.txt && \
+    /usr/local/bin/plugins.sh /usr/share/jenkins/ref/plugins.txt
 
 ## python ( https://github.com/frol/docker-alpine-python2/blob/master/Dockerfile ) ##
 
