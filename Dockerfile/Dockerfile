@@ -11,11 +11,13 @@ RUN apk update && \
     rm -rf /usr/share/jenkins/ref/plugins/* && \
     /usr/local/bin/plugins.sh /usr/share/jenkins/ref/plugins.txt && \
     ## python
-    python && \
+    apk add --no-cache python && \
     python -m ensurepip && \
     rm -r /usr/lib/python*/ensurepip && \
     pip install --upgrade pip setuptools && \
     rm -r /root/.cache
+    ## jmeter
+    pip install bzt
 
 USER jenkins
 
