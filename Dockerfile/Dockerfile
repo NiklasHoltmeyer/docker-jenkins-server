@@ -10,14 +10,28 @@ RUN apk update && \
     apk del dos2unix && \
     rm -rf /usr/share/jenkins/ref/plugins/* && \
     /usr/local/bin/plugins.sh /usr/share/jenkins/ref/plugins.txt && \
-    ## python
-    apk add --no-cache python && \
+
+## python ( https://github.com/frol/docker-alpine-python2/blob/master/Dockerfile ) ##
+
+RUN apk add --no-cache python && \
     python -m ensurepip && \
     rm -r /usr/lib/python*/ensurepip && \
     pip install --upgrade pip setuptools && \
-    rm -r /root/.cache && \
-    ## jmeter
-    pip install bzt
+    rm -r /root/.cache
+
+## python ( https://github.com/frol/docker-alpine-python2/blob/master/Dockerfile ) ende ##
+
+RUN apk add --update --no-cache g++ gcc \
+                     cython \
+                     cython-dev \
+                     build-base \
+                     libxml2-dev \
+                     alpine-sdk \
+                     libxml2-dev \
+                     libxslt-dev \
+                     python-dev  \
+                     py-lxml && \
+        pip install lxml bzt
 
 USER jenkins
 
