@@ -95,7 +95,7 @@ plain-credentials: 1.4
 pubsub-light: 1.12
 resource-disposer: 0.12
 scm-api: 2.3.0
-script-security: 1.46
+script-security: 1.47
 sse-gateway: 1.16
 ssh-credentials: 1.14
 ssh-slaves: 1.28.1
@@ -109,7 +109,7 @@ workflow-aggregator: 2.6
 workflow-api: 2.30
 workflow-basic-steps: 2.11
 workflow-cps-global-lib: 2.12
-workflow-cps: 2.58
+workflow-cps: 2.59
 workflow-durable-task-step: 2.22
 workflow-job: 2.26
 workflow-multibranch: 2.20
