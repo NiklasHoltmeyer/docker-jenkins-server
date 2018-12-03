@@ -1,7 +1,10 @@
 FROM jenkins/jenkins:alpine
 
+COPY --from=docker:latest /usr/local/bin/docker /usr/local/bin/
 COPY plugins.txt /usr/share/jenkins/ref/plugins.txt
+COPY docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
 USER root
+
 
 RUN apk update && \
     apk upgrade && \     
@@ -13,7 +16,6 @@ RUN apk update && \
 
 ## Quelle:
 RUN apk add --no-cache ca-certificates curl openssl git openssh-client docker
-COPY docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
 RUN chmod +x /usr/local/bin/docker-entrypoint.sh
 RUN /usr/local/bin/docker-entrypoint.sh
 ## Ende: https://bitbucket.org/yobasystems/alpine-docker/src/f5a60c5db781/alpine-docker/?at=master
