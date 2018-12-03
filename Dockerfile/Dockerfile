@@ -13,7 +13,7 @@ RUN apk update && \
 
 ## Quelle:
 RUN apk add --no-cache ca-certificates curl openssl git openssh-client docker
-COPY ./docker-entrypoint.sh /usr/local/bin/
+COPY docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
 RUN chmod +x /usr/local/bin/docker-entrypoint.sh && sh /usr/local/bin/docker-entrypoint.sh
 ## Ende: https://bitbucket.org/yobasystems/alpine-docker/src/f5a60c5db781/alpine-docker/?at=master
 
