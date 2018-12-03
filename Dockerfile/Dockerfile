@@ -1,10 +1,7 @@
 FROM jenkins/jenkins:alpine
 
-COPY --from=docker:latest /usr/local/bin/docker /usr/local/bin/
 COPY plugins.txt /usr/share/jenkins/ref/plugins.txt
-COPY docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
 USER root
-
 
 RUN apk update && \
     apk upgrade && \     
@@ -13,14 +10,6 @@ RUN apk update && \
     apk del dos2unix && \
     rm -rf /usr/share/jenkins/ref/plugins/* && \
     /usr/local/bin/plugins.sh /usr/share/jenkins/ref/plugins.txt
-
-## Quelle:
-RUN apk add --no-cache ca-certificates curl openssl git openssh-client docker
-RUN chmod +x /usr/local/bin/docker-entrypoint.sh
-RUN /usr/local/bin/docker-entrypoint.sh
-## Ende: https://bitbucket.org/yobasystems/alpine-docker/src/f5a60c5db781/alpine-docker/?at=master
-
-## Quelle: https://github.com/Zenika/alpine-maven/blob/master/jdk8/Dockerfile
 
 ENV MAVEN_VERSION 3.6.0
 ENV MAVEN_HOME /usr/lib/mvn
@@ -33,8 +22,6 @@ RUN wget http://archive.apache.org/dist/maven/maven-3/$MAVEN_VERSION/binaries/ap
   
  ## Ende: https://github.com/Zenika/alpine-maven/blob/master/jdk8/Dockerfile 
  
- RUN apk add --update ffmpeg
-
 USER jenkins
 
 EXPOSE 8080
