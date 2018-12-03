@@ -8,4 +8,6 @@ RUN apk update && \
             docker \
             py-pip &&\
     pip install docker-compose
-
+    
+ENV DOCKER_HOST_URL 127.0.0.1
+ENV DOCKER_URL https://registry.hub.docker.com
