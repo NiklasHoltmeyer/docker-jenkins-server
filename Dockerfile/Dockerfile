@@ -11,6 +11,8 @@ RUN apk update && \
     rm -rf /usr/share/jenkins/ref/plugins/* && \
     /usr/local/bin/plugins.sh /usr/share/jenkins/ref/plugins.txt
 
+RUN apk add --no-cache ca-certificates curl openssl git openssh-client docker
+
 USER jenkins
 
 EXPOSE 8080
